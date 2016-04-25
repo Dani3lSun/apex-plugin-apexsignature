@@ -1,6 +1,6 @@
 /*-------------------------------------
  * APEX Signature
- * Version: 1.0.1 (25.04.2016)
+ * Version: 1.1 (25.04.2016)
  * Author:  Daniel Hochleitner
  *-------------------------------------
 */
@@ -19,6 +19,7 @@ FUNCTION render_apexsignature(p_region              IN apex_plugin.t_region,
   l_clear_btn_selector VARCHAR2(100) := p_region.attribute_09;
   l_save_btn_selector  VARCHAR2(100) := p_region.attribute_10;
   l_alert_text         VARCHAR2(200) := p_region.attribute_11;
+  l_show_spinner       VARCHAR2(50) := p_region.attribute_12;
   -- other variables
   l_region_id              VARCHAR2(200);
   l_canvas_id              VARCHAR2(200);
@@ -44,11 +45,13 @@ BEGIN
     l_signaturepad_js  := 'signature_pad.min';
   END IF;
   -- set variables and defaults
-  l_region_id := apex_escape.html_attribute(p_region.static_id ||
-                                            '_signature');
-  l_canvas_id := l_region_id || '_canvas';
-  l_logging   := nvl(l_logging,
-                     'false');
+  l_region_id    := apex_escape.html_attribute(p_region.static_id ||
+                                               '_signature');
+  l_canvas_id    := l_region_id || '_canvas';
+  l_logging      := nvl(l_logging,
+                        'false');
+  l_show_spinner := nvl(l_show_spinner,
+                        'false');
   -- escape input
   l_background_color_esc   := sys.htf.escape_sc(l_background_color);
   l_pen_color_esc          := sys.htf.escape_sc(l_pen_color);
@@ -94,7 +97,9 @@ BEGIN
                                             apex_javascript.add_attribute('saveButton',
                                                                           l_save_btn_selector_esc) ||
                                             apex_javascript.add_attribute('emptyAlert',
-                                                                          l_alert_text_esc,
+                                                                          l_alert_text_esc) ||
+                                            apex_javascript.add_attribute('showSpinner',
+                                                                          l_show_spinner,
                                                                           FALSE,
                                                                           FALSE) || '},' ||
                                             apex_javascript.add_value(l_logging,

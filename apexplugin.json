@@ -1,6 +1,6 @@
 {
   "name" : "APEX Signature",
-  "version" : "1.0.1",
+  "version" : "1.1",
   "description" : "APEX Signature allows you to draw smooth signatures into a HTML5 canvas and enables you to save the resulting image into database.",
   "keywords" : ["signature","draw","html5","canvas"],
   "homepage" : "https://github.com/Dani3lSun/apex-plugin-apexsignature",

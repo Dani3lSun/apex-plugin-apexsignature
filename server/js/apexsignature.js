@@ -1,6 +1,6 @@
 // APEX Signature functions
 // Author: Daniel Hochleitner
-// Version: 1.0
+// Version: 1.1
 
 // global namespace
 var apexSignature = {
@@ -70,6 +70,7 @@ var apexSignature = {
         var vClearBtnSelector = vOptions.clearButton;
         var vSaveBtnSelector = vOptions.saveButton;
         var vEmptyAlert = vOptions.emptyAlert;
+        var vShowSpinner = apexSignature.parseBoolean(vOptions.showSpinner);
         var vCanvasWidth = vCanvas$.width;
         var vCanvasHeight = vCanvas$.height;
         var vClientWidth = parseInt(document.documentElement.clientWidth);
@@ -84,6 +85,8 @@ var apexSignature = {
             console.log('apexSignatureFnc: vOptions.penColor:', vOptions.penColor);
             console.log('apexSignatureFnc: vOptions.saveButton:', vOptions.saveButton);
             console.log('apexSignatureFnc: vOptions.clearButton:', vOptions.clearButton);
+            console.log('apexSignatureFnc: vOptions.emptyAlert:', vOptions.emptyAlert);
+            console.log('apexSignatureFnc: vOptions.showSpinner:', vOptions.showSpinner);
             console.log('apexSignatureFnc: pRegionId:', pRegionId);
             console.log('apexSignatureFnc: vCanvasWidth:', vCanvasWidth);
             console.log('apexSignatureFnc: vCanvasHeight:', vCanvasHeight);
@@ -116,9 +119,19 @@ var apexSignature = {
             var vIsEmpty = signaturePad.isEmpty();
             // only when signature is not empty
             if (vIsEmpty === false) {
+                // show wait spinner
+                if (vShowSpinner) {
+                    var lSpinner$ = apex.util.showSpinner($('#' + pRegionId));
+                }
+                // save image
                 var vImg = signaturePad.toDataURL();
                 apexSignature.save2Db(vOptions.ajaxIdentifier, pRegionId, vImg, function() {
+                    // clear
                     signaturePad.clear();
+                    // remove wait spinner
+                    if (vShowSpinner) {
+                        lSpinner$.remove();
+                    }
                 });
                 // is empty
             } else {
