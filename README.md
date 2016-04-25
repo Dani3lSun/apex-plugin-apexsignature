@@ -3,7 +3,7 @@ APEX Signature allows you to draw smooth signatures into a HTML5 canvas and enab
 It is based on JS Framework Signature Pad (https://github.com/szimek/signature_pad).
 
 ##Changelog
-####1.0.1 - Fixed character set issues with line width/height decimal numbers
+####1.0.1 - Fixed character set issues with line minWidth/maxWidth decimal numbers
 
 ####1.0 - Initial Release
 
