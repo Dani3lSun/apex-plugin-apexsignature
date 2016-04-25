@@ -36,7 +36,7 @@ wwv_flow_api.create_plugin(
 ,p_plsql_code=>wwv_flow_utilities.join(wwv_flow_t_varchar2(
 '/*-------------------------------------',
 ' * APEX Signature',
-' * Version: 1.0 (24.04.2016)',
+' * Version: 1.0.1 (25.04.2016)',
 ' * Author:  Daniel Hochleitner',
 ' *-------------------------------------',
 '*/',
@@ -47,8 +47,8 @@ wwv_flow_api.create_plugin(
 '  -- plugin attributes',
 '  l_width              NUMBER := p_region.attribute_01;',
 '  l_height             NUMBER := p_region.attribute_02;',
-'  l_line_minwidth      NUMBER := p_region.attribute_03;',
-'  l_line_maxwidth      NUMBER := p_region.attribute_04;',
+'  l_line_minwidth      VARCHAR2(50) := p_region.attribute_03;',
+'  l_line_maxwidth      VARCHAR2(50) := p_region.attribute_04;',
 '  l_background_color   VARCHAR2(100) := p_region.attribute_05;',
 '  l_pen_color          VARCHAR2(100) := p_region.attribute_06;',
 '  l_logging            VARCHAR2(50) := p_region.attribute_08;',
@@ -165,7 +165,7 @@ wwv_flow_api.create_plugin(
 ,p_substitute_attributes=>false
 ,p_subscribe_plugin_settings=>true
 ,p_help_text=>'APEX Signature allows you to draw smooth signatures into a HTML5 canvas and enables you to save the resulting image into database.'
-,p_version_identifier=>'1.0'
+,p_version_identifier=>'1.0.1'
 ,p_about_url=>'https://github.com/Dani3lSun/apex-plugin-apexsignature'
 ,p_files_version=>936
 );

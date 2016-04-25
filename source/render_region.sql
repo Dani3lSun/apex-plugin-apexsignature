@@ -1,6 +1,6 @@
 /*-------------------------------------
  * APEX Signature
- * Version: 1.0 (24.04.2016)
+ * Version: 1.0.1 (25.04.2016)
  * Author:  Daniel Hochleitner
  *-------------------------------------
 */
@@ -11,8 +11,8 @@ FUNCTION render_apexsignature(p_region              IN apex_plugin.t_region,
   -- plugin attributes
   l_width              NUMBER := p_region.attribute_01;
   l_height             NUMBER := p_region.attribute_02;
-  l_line_minwidth      NUMBER := p_region.attribute_03;
-  l_line_maxwidth      NUMBER := p_region.attribute_04;
+  l_line_minwidth      VARCHAR2(50) := p_region.attribute_03;
+  l_line_maxwidth      VARCHAR2(50) := p_region.attribute_04;
   l_background_color   VARCHAR2(100) := p_region.attribute_05;
   l_pen_color          VARCHAR2(100) := p_region.attribute_06;
   l_logging            VARCHAR2(50) := p_region.attribute_08;
