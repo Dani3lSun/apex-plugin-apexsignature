@@ -26,6 +26,7 @@ The plugin settings are highly customizable and you can change:
 - **Clear Button JQuery Selector** - JQuery Selector to identify the "Clear Button" to clear signature area (#MY_BUTTON_STATIC_ID or .my_button_class)
 - **Save Button JQuery Selector** - JQuery Selector to identify the "Save Button" to save signature into Database (#MY_BUTTON_STATIC_ID or .my_button_class)
 - **Save empty Signature Alert text** - Alert text when a User tries to save a empty signature
+- **Show Wait Spinner** - Show/Hide wait spinner when saving image into database
 - **Logging** - Whether to log events in the console
 
 ## Plugin Events
