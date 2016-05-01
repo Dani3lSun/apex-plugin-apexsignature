@@ -1,20 +1,20 @@
-#Oracle APEX Region Plugin - APEX Signature
+# Oracle APEX Region Plugin - APEX Signature
 APEX Signature allows you to draw smooth signatures into a HTML5 canvas and enables you to save the resulting image into database.
 It is based on JS Framework Signature Pad (https://github.com/szimek/signature_pad).
 
-##Changelog
-####1.1 - Added optional WaitSpinner when saving image into database
+## Changelog
+#### 1.1 - Added optional WaitSpinner when saving image into database
 
-####1.0.1 - Fixed character set issues with line minWidth/maxWidth decimal numbers
+#### 1.0.1 - Fixed character set issues with line minWidth/maxWidth decimal numbers
 
-####1.0 - Initial Release
+#### 1.0 - Initial Release
 
 
-##Install
+## Install
 - Import plugin file "region_type_plugin_de_danielh_apexsignature.sql" from source directory into your application
 - (Optional) Deploy the JS files from "server" directory on your webserver and change the "File Prefix" to webservers folder.
 
-##Plugin Settings
+## Plugin Settings
 The plugin settings are highly customizable and you can change:
 - **Width** - Default width of signature area
 - **Height** - Default height of signature area
@@ -34,11 +34,11 @@ The plugin settings are highly customizable and you can change:
 - **Signature saved to DB** - DA event that fires when the signature is successfully save to DB
 - **Signature saved to DB Error** - DA event that fires when saving to DB had an error
 
-##How to use
+## How to use
 - Create a APEX Signature region on target page
 - Choose best fitting plugin attributes (help included)
 
-####Save to DB using PL/SQL (default Code of Plugin)
+#### Save to DB using PL/SQL (default Code of Plugin)
 For saving files to DB you can use a PL/SQL function like this:
 
 ```language-sql
@@ -95,7 +95,7 @@ BEGIN
 END;
 ```
 
-####Get files from default PL/SQL code
+#### Get files from default PL/SQL code
 If you use the default PL/SQL code provided with this plugin, the files are saved in a APEX collection called "APEX_SIGNATURE". Select it like that:
 
 ```language-sql
@@ -108,9 +108,9 @@ SELECT c001    AS filename,
  ```
 
 
-##Demo Application
+## Demo Application
 https://apex.oracle.com/pls/apex/f?p=APEXPLUGIN
 
-##Preview
+## Preview
 ![](https://github.com/Dani3lSun/apex-plugin-apexsignature/blob/master/preview.gif)
 ---
