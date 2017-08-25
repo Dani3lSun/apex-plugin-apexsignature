@@ -1,6 +1,7 @@
 # Oracle APEX Region Plugin - APEX Signature
 
 [![APEX Community](https://cdn.rawgit.com/Dani3lSun/apex-github-badges/78c5adbe/badges/apex-community-badge.svg)](https://github.com/Dani3lSun/apex-github-badges) [![APEX Plugin](https://cdn.rawgit.com/Dani3lSun/apex-github-badges/b7e95341/badges/apex-plugin-badge.svg)](https://github.com/Dani3lSun/apex-github-badges)
+[![APEX Built with Love](https://cdn.rawgit.com/Dani3lSun/apex-github-badges/7919f913/badges/apex-love-badge.svg)](https://github.com/Dani3lSun/apex-github-badges)
 
 APEX Signature allows you to draw smooth signatures into a HTML5 canvas and enables you to save the resulting image into database.
 It is based on JS Framework Signature Pad (https://github.com/szimek/signature_pad).
