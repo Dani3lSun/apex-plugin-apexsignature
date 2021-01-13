@@ -82,6 +82,8 @@ BEGIN
                                             apex_javascript.add_value(p_region.static_id) || '{' ||
                                             apex_javascript.add_attribute('ajaxIdentifier',
                                                                           apex_plugin.get_ajax_identifier) ||
+                                            apex_javascript.add_attribute('ajaxItemsToSubmit',
+                                                                          p_region.ajax_items_to_submit) ||
                                             apex_javascript.add_attribute('canvasId',
                                                                           l_canvas_id) ||
                                             apex_javascript.add_attribute('lineMinWidth',

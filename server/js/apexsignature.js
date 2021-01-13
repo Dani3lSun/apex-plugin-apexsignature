@@ -32,21 +32,23 @@ var apexSignature = {
         return base64;
     },
     // save to DB function
-    save2Db: function(pAjaxIdentifier, pRegionId, pImg, callback) {
+    save2Db: function(pOptions, pRegionId, pImg, callback) {
         // img DataURI to base64
         var base64 = apexSignature.dataURI2base64(pImg);
         // split base64 clob string to f01 array length 30k
         var f01Array = [];
         f01Array = apexSignature.clob2Array(base64, 30000, f01Array);
         // Apex Ajax Call
-        apex.server.plugin(pAjaxIdentifier, {
-            f01: f01Array
+        apex.server.plugin(pOptions.ajaxIdentifier, {
+            f01: f01Array,
+            // #13: Allows for items to be submitted
+            pageItems: pOptions.ajaxItemsToSubmit.split(',')
         }, {
             dataType: 'html',
             // SUCESS function
-            success: function() {
+            success: function(data) {
                 // add apex event
-                $('#' + pRegionId).trigger('apexsignature-saved-db');
+                $('#' + pRegionId).trigger('apexsignature-saved-db', JSON.parse(data ? data : '{}'));
                 // callback
                 callback();
             },
@@ -78,6 +80,7 @@ var apexSignature = {
         // Logging
         if (vLogging) {
             console.log('apexSignatureFnc: vOptions.ajaxIdentifier:', vOptions.ajaxIdentifier);
+            console.log('apexSignatureFnc: vOptions.ajaxItemsToSubmit:', vOptions.ajaxItemsToSubmit);
             console.log('apexSignatureFnc: vOptions.canvasId:', vOptions.canvasId);
             console.log('apexSignatureFnc: vOptions.lineMinWidth:', vOptions.lineMinWidth);
             console.log('apexSignatureFnc: vOptions.lineMaxWidth:', vOptions.lineMaxWidth);
@@ -125,7 +128,7 @@ var apexSignature = {
                 }
                 // save image
                 var vImg = signaturePad.toDataURL();
-                apexSignature.save2Db(vOptions.ajaxIdentifier, pRegionId, vImg, function() {
+                apexSignature.save2Db(vOptions, pRegionId, vImg, function() {
                     // clear
                     signaturePad.clear();
                     // remove wait spinner
