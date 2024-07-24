@@ -7,6 +7,14 @@ APEX Signature allows you to draw smooth signatures into a HTML5 canvas and enab
 It is based on JS Framework Signature Pad (https://github.com/szimek/signature_pad).
 
 ## Changelog
+
+#### 1.2 - updates + fixes
+  - Updated signature_pad to v5.0.2
+  - Added Image Format support (JPEG / PNG for now)
+  - Upgraded to Apex 23.2.2
+  - Fixed the null problem in martindsouza's pull request which fixed issue #13
+  - Added the functionality to remove whitespace from the signature. Note that, for now, when using JPEG format only a white background is supported
+
 #### 1.1 - Added optional WaitSpinner when saving image into database
 
 #### 1.0.1 - Fixed character set issues with line minWidth/maxWidth decimal numbers
@@ -26,6 +34,7 @@ The plugin settings are highly customizable and you can change:
 - **Line maxWidth** - Maximum width of a line. Defaults to 2.5
 - **Background Color** - Background color of signature area. Defaults to "rgba(0,0,0,0)", can be RGB, Hex or color name like white or black
 - **Pen color** - Color used to draw the lines. Defaults to "black", can be RGB, Hex or color name like white or black
+- **Image Format** - Decide whether to use png or jpeg image format for the signature blob.
 - **PLSQL Code** - PLSQL code which saves the resulting image to database tables or collections, default APEX_COLLECTION: "APEX_SIGNATURE"
 - **Clear Button JQuery Selector** - JQuery Selector to identify the "Clear Button" to clear signature area (#MY_BUTTON_STATIC_ID or .my_button_class)
 - **Save Button JQuery Selector** - JQuery Selector to identify the "Save Button" to save signature into Database (#MY_BUTTON_STATIC_ID or .my_button_class)
